@@ -9,27 +9,50 @@ public class Task2 {
 
 		ArrayList<Integer> arr = new ArrayList<>();
 
-		System.out.println("Вводи числа один за одним. Чтобы напиши count чтобы произвести подсчеты");
+		int max = 0;
+		int min;
+		int summ = 0;
+
+		System.out.println("Вводи числа один за одним. Напиши count чтобы произвести подсчеты");
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-		for(int i =0; i<5;i++) {
-			try {
-				arr.add(Integer.parseInt(reader.readLine()));
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			while (true) {
+				String s = reader.readLine();
+				if (s.equals("count")) {
+					break;
+				} else {
+					arr.add(Integer.parseInt(s));
+				}
+
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println("Количество введных чисел: " + arr.size());
+
+		for (int m : arr) {
+			if (max < m) {
+				max = m;
 			}
 		}
+		System.out.println("Максимальное число: " + max);
 		
-
-		for (int i = 0; i < arr.size(); i++) {
-			System.out.println(arr.get(i));
+		min = max;
+		
+		for(int m : arr) {
+			if (min > m) {
+				min = m;
+			}
+			summ += m;
+			
 		}
-
+		System.out.println("Минимальное число: " + min);
+		System.out.println("Среднее всех чисел: " + summ/arr.size());
 	}
 
 }

@@ -32,15 +32,15 @@ public class CarStatistics<T extends Car> {
 	}
 
 	public LinkedList<T> selectByYearAndPrice(int year, int price, LinkedList<T> arr) {
-		LinkedList<T> ByYearAndPrice = new LinkedList<T>();
+		LinkedList<T> arrByYearAndPrice = new LinkedList<T>();
 
 		for (T x : arr) {
 			if (x.getYear() == year && x.getPrice() > price) {
-				ByYearAndPrice.add(x);
+				arrByYearAndPrice.add(x);
 			}
 		}
 
-		return ByYearAndPrice;
+		return arrByYearAndPrice;
 	}
 
 }
